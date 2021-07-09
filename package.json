@@ -1,0 +1,17 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "Api que simula una red social",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "social",
+    "network"
+  ],
+  "author": "Hugo Lara <hugo.alex200197@outlook.com>",
+  "license": "MIT"
+}
