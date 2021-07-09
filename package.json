@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Api que simula una red social",
   "main": "index.js",
+  "repository": {
+    "github": "https://github.com/hugolara2/social-api.git",
+    "gitlab": "https://gitlab.com/hugolara/social-api.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +17,8 @@
     "network"
   ],
   "author": "Hugo Lara <hugo.alex200197@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
