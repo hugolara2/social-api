@@ -8,7 +8,8 @@
     "gitlab": "https://gitlab.com/hugolara/social-api.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon api/index.js"
   },
   "keywords": [
     "node",
