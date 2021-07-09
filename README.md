@@ -14,8 +14,9 @@ $ git clone https://github.com/hugolara2/social-api.git or https://gitlab.com/hu
 $ cd social-api
 # install the project's dependencies
 $ npm install
-# watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:3000/` using postman or any applicacion that allows the use of an api.
+# watches your files and uses livereload by default run `npm start` for a dev server. 
+# Navigate to `http://localhost:3000/` using postman or any applicacion that allows the use of an api.
 # it is recommended the use of nodemon
-#Use the next command to install nodemon 
-$npm i -g nodemon
+# Use the next command to install nodemon 
+$ npm i -g nodemon
 $ npm start
