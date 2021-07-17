@@ -1,4 +1,4 @@
-exports.succes = function(req, res, message, status){
+exports.success = function(req, res, message, status){
   // codigo que envia un mensaje si la request es exitosa
   let statusCode = status || 200;
   let statusMessage = message || '';
