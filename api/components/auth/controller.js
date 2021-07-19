@@ -11,11 +11,12 @@ module.exports = function(injectedStore) {
   }
 
   async function login(username, password){
-    const data = await store.query(TABLE, {username: username});
+    const data = await store.query(TABLE, {user_login: username});
 
-    return bcrypt.compare(password, data.password)
+    return bcrypt.compare(password, data.user_pwd)
       .then((sonIguales) => {
-        if(sonIguales === true){
+        console.log(data);
+        if(sonIguales == true){
           //Generar token
           return auth.sign(data);
         }else{
@@ -27,14 +28,14 @@ module.exports = function(injectedStore) {
 
   async function upsert(data){
     const authData = {
-      id: data.id
+      user_id: data.user_id,
     };
 
-    if(data.username){
-      authData.username = data.username;
+    if(data.user_login){
+      authData.user_login = data.user_login;
     }
-    if(data.password){
-      authData.password = await bcrypt.hash(data.password, 5);
+    if(data.user_pwd){
+      authData.user_pwd = await bcrypt.hash(data.user_pwd, 5);
     }
 
     return store.upsert(TABLE, authData);

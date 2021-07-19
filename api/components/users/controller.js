@@ -20,21 +20,24 @@ module.exports = function(injectedStore) {
 
   async function upsert(body){
     const user = {
-      name: body.name,
-      username: body.username,
+      user_name: body.user_name,
+      user_lastName: body.user_lastName,
+      birthdate: body.birthdate,
+      user_email: body.user_email
     };
     
-    if(body.id){
-      user.id = body.id;
+    if(body.user_id){
+      user.user_id = body.user_id;
     }else{
-      user.id = nanoid.nanoid();
+      user.user_id = nanoid.nanoid();
     }
 
-    if(body.password || body.username){
+    if(body.user_pwd || body.user_login){
       await auth.upsert({        
-        id: user.id,
-        username: user.username, 
-        password: body.password});
+        user_id: user.user_id,
+        user_login: body.user_login, 
+        user_pwd: body.user_pwd
+      });
     }
 
     return store.upsert(TABLE, user);
@@ -45,4 +48,4 @@ module.exports = function(injectedStore) {
     get,
     upsert
   };
-};
+}
