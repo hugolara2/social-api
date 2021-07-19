@@ -17,15 +17,20 @@ const check = {
     const decoded = decodeHeader(req);
     console.log(decoded);
 
-    if(decoded.id !== owner){
+    if(decoded.user_id !== owner){
       throw error('No puedes hacer esto', 401);
     }
   },
+
+  logged: function(req){
+    const decoded = decodeHeader(req);
+  },
+
 };
 
 function getToken(auth){
   if(!auth){
-    throw error('No viene token');
+    throw error('No viene token', 401);
   }
 
   if(auth.indexOf('Bearer') === -1){
@@ -41,7 +46,7 @@ function decodeHeader(req){
   const token = getToken(authorization);
   const decoded = verify(token);
 
-  req.user = decoded;
+  req.user_id = decoded;
   return decoded;
 }
 
