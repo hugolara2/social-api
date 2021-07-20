@@ -1,3 +1,9 @@
+/**
+ * TODO:
+ * []Terminar las funciones get, upsert y query
+ * 
+ */
+
 const request = require('request');
 
 function creatRemoteDB(host, port){
