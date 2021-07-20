@@ -15,6 +15,10 @@ module.exports = function checkAuth(action) {
         break;
       default:
         next();
+      case 'like':
+        auth.check.token(req);
+        next();
+        break;
     }
   }
 

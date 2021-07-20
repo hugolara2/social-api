@@ -5,7 +5,8 @@ const swaggerUi = require('swagger-ui-express');
 
 const config = require('../config.js');
 const users = require('./components/users/network');
-const auth = require('./components/auth/network'); 
+const auth = require('./components/auth/network');
+const posts = require('./components/posts/network');
 const errors = require('../network/errors'); 
 
 const app = express();
@@ -13,9 +14,11 @@ const app = express();
 app.use(bodyParser.json()); 
 
 const swaggerDoc = require('./swagger.json');
+const { application } = require('express');
 
 //Routes
 app.use('/api/user', users);
+app.use('/api/post', posts);
 app.use('/api/auth', auth);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 

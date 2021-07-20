@@ -13,6 +13,8 @@ router.get('/:id/following', following);
 router.get('/:id', get);
 router.post('/', upsert);
 router.put('/', secure('update'), upsert);
+router.get('/like/:id', secure('like'), like);
+
 
 function list(req, res, next){
   controller.list()
@@ -53,5 +55,13 @@ function following(req, res, next){
     })
     .catch(next);
 } 
+
+function like(req, res, next){
+  controller.likePost(req.user.id, req.params.post_id)
+    .then((data) => {
+      response.success(req, res, data, 200);
+    })
+    .catch(next);
+}
 
 module.exports = router; 

@@ -3,6 +3,7 @@ const auth = require('../auth');
 
 const TABLE = 'users';
 const FOLLOWS = 'users_follows';
+const POSTS = 'like_post';
 
 module.exports = function(injectedStore) {
   let store = injectedStore;
@@ -57,6 +58,13 @@ module.exports = function(injectedStore) {
     const query = {from_user: user};
 
     return await store.query(FOLLOWS, query, join);
+  }
+
+  function likePost(user, post){
+    return store.upsert(POSTS, {
+      post_id: post,
+      user_id: user
+    });
   }
 
   return {
