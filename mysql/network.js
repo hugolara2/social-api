@@ -9,6 +9,7 @@ router.get('/:table', list);
 router.get('/:table/:id', get);
 router.post('/:table', insert);
 router.put('/:table/:id', upsert);
+//router.post('/:table/query', query);
 
 async function list(req, res, next){
   const data = await Store.list(req.params.table);
